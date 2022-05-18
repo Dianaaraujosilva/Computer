@@ -33,3 +33,11 @@ C:\Users\IFSP\Desktop\sp304422x\LabManager\bin\Debug\net6.0\runtimes\win-arm64\n
 C:\Users\IFSP\Desktop\sp304422x\LabManager\bin\Debug\net6.0\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\IFSP\Desktop\sp304422x\LabManager\bin\Debug\net6.0\runtimes\win-x86\native\e_sqlite3.dll
 C:\Users\IFSP\Desktop\sp304422x\LabManager\obj\Debug\net6.0\LabManager.csproj.CopyComplete
+C:\Users\IFSP\Desktop\SP304422X\Computer\obj\Debug\net6.0\LabManager.csproj.AssemblyReference.cache
+C:\Users\IFSP\Desktop\SP304422X\Computer\obj\Debug\net6.0\LabManager.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\IFSP\Desktop\SP304422X\Computer\obj\Debug\net6.0\LabManager.AssemblyInfoInputs.cache
+C:\Users\IFSP\Desktop\SP304422X\Computer\obj\Debug\net6.0\LabManager.AssemblyInfo.cs
+C:\Users\IFSP\Desktop\SP304422X\Computer\obj\Debug\net6.0\LabManager.csproj.CoreCompileInputs.cache
+C:\Users\IFSP\Desktop\SP304422X\Computer\obj\Debug\net6.0\LabManager.dll
+C:\Users\IFSP\Desktop\SP304422X\Computer\obj\Debug\net6.0\refint\LabManager.dll
+C:\Users\IFSP\Desktop\SP304422X\Computer\obj\Debug\net6.0\LabManager.pdb
