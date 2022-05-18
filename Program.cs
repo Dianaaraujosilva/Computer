@@ -63,4 +63,49 @@ if (modelName == "Computer")
         connection.Close();
         
     }
+    if ( modelName == " Lab " )
+    { 
+        if ( modelAction == " Lista " ) 
+        { 
+            Consola . WriteLine ( " Lista Lab " ); 
+            conexão = new SqliteConnection ( " Data Source=database.db " ); 
+            
+            conexão . Abrir (); 
+            
+            comando = conexão . CriarComando (); 
+            comando . CommandText = " SELECT * FROM Lab; " ; 
+            
+            var leitor = comando . ExecuteReader (); 
+            
+            enquanto ( leitor . Leia ()) 
+            { 
+                Consola . EscreverLinha ( 
+                    " {0}, {1}, {2}, {3} " , leitor . GetInt32 ( 0 ), leitor . GetInt32 ( 1 ), 
+                    leitor . GetString ( 2 ), leitor . GetString ( 3 ) 
+                ); 
+            } 
+            conexão . Fechar (); 
+        }
+            if ( modelAction == " Novo " ) 
+            { 
+                int id = Converter . ToInt32 ( args [ 2 ]); 
+                int número = Converter . ToInt32 ( args [ 3 ]); 
+                
+                nome da string = argumentos [ 4 ]; 
+                bloco de string = args [ 5 ]; 
+                
+                conexão = new SqliteConnection ( " Data Source=database.db " ); 
+                conexão . Abrir (); 
+                
+                comando = conexão . CriarComando (); 
+                comando . CommandText = " INSERT INTO Lab VALUES($id, $number, $name, $block); " ; 
+                
+                comando . Parâmetros . AddWithValue ( " $id " ,id ); 
+                comando . Parâmetros . AddWithValue ( " $número " , número ); 
+                comando . Parâmetros . AddWithValue ( " $nome " , nome ); 
+                comando . Parâmetros . AddWithValue ( " $bloco " , bloco ); 
+                
+                comando .ExecuteNonQuery (); 
+                conexão . Fechar (); }
+    }
 }
