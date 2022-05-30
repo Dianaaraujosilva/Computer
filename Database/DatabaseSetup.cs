@@ -4,16 +4,18 @@ namespace LabManager.Database;
 
 class DatabaseSetup 
 {
+  private readonly DatabaseConfig _databaseConfig;
     
-    public DatabaseSetup()
+    public DatabaseSetup(DatabaseConfig databaseConfig)
     {
-        CreateComputerTable();
+        _databaseConfig = databaseConfig;
         CreateLabTable();
     }
     
-    public void CreateComputerTable();
+       private void CreateComputerTable()
     {
-        var connection = new SqliteConnection("Data Source=database.db");
+        
+        var connection = new SqliteConnection(_databaseConfig.ConnectionString);
         connection.Open();
 
         var command = connection.CreateCommand();
@@ -24,17 +26,11 @@ class DatabaseSetup
                 processor varchar(100) not null
             );
         ";
+    
 
         command.ExecuteNonQuery();
 
         connection.Close();
 
     }
-
-    public void CreateLabTable()
-    {
-
-    }
-
-    public void CreateUserTable()
 }
