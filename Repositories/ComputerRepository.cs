@@ -14,7 +14,7 @@ class ComputerRepository
         _databaseConfig = databaseConfig;
     }
     
-    public List<Computer> GetAll()
+    public IEnumerable<Computer> GetAll()
     {
         using var connection = new SqliteConnection(_databaseConfig.ConnectionString);
         connection.Open();
@@ -52,7 +52,7 @@ class ComputerRepository
         SET 
             ram = @Ram,
             processor = @Processor
-        WHERE id = @Id
+            WHERE id = @Id
         ", computer);
 
         return computer;
@@ -74,21 +74,10 @@ class ComputerRepository
         using var connection = new SqliteConnection(_databaseConfig.ConnectionString);
         connection.Open();
 
-        var result = Convert.ToBoolean(connection.ExecuteScalar("DELETE FROM Computers WHERE id = @Id", new {Id = id}));
+        var result = connection.ExecuteScalar<Boolean>("SELECT count(id) FROM Computers WHERE id = @Id", new {Id = id});
 
         return result;
     }
-
-    \\private Computer ReaderToComputer(SqliteDataReader reader)
-   \\ {
-       \\ var computer = new Computer(
-         \\  reader.GetInt32(0), 
-          \\ reader.GetString(1), 
-          \\ reader.GetString(2) 
-       \\ );
-       \\ return computer;
-    \\}
-
     
 }
 

@@ -14,12 +14,12 @@ class LabRepository
         _databaseConfig = databaseConfig;
     }
     
-    public IEnumerable<Lab> GetAll()
+    public List<Lab> GetAll()
     {
         using var connection = new SqliteConnection(_databaseConfig.ConnectionString);
         connection.Open();
 
-        var labs = connection.Query<Lab>("SELECT * FROM Labs");
+        var labs = connection.Query<Lab>("SELECT * FROM Labs").ToList();
 
         return labs;
     }
@@ -33,17 +33,7 @@ class LabRepository
 
         return lab;
     }
-
-    public Lab GetById(int id)
-    {
-        using var connection = new SqliteConnection(_databaseConfig.ConnectionString);
-        connection.Open();
-
-        var lab = connection.QuerySingle<Lab>("SELECT * FROM Labs WHERE id = @Id", new {Id = id});
-
-        return lab;
-    }
-
+    
     public void Delete(int id)
     {
         using var connection = new SqliteConnection(_databaseConfig.ConnectionString);
@@ -55,26 +45,31 @@ class LabRepository
     public Lab Update(Lab lab)
     {
         using var connection = new SqliteConnection(_databaseConfig.ConnectionString);
-        connection.Open();
 
-        connection.Execute(@"
-        Update Labs 
-        SET 
-            number = @Number,
-            name = @Name,
-            block = @Block
-        WHERE id = @Id
-        ", lab);
- 
+        connection.Execute("UPDATE Labs SET number = @Number, name = @Name, block = @Block WHERE (id = @Id)", lab);
+
         return lab;
+ 
     }
 
-    public bool ExistsById(int id)
+    public Lab GetById(int id)
     {
         using var connection = new SqliteConnection(_databaseConfig.ConnectionString);
         connection.Open();
 
-        var result = Convert.ToBoolean(connection.ExecuteScalar("SELECT COUNT(id) FROM Labs WHERE id = @Id", new {Id = id}));
+        var lab = connection.QuerySingle<Lab>("SELECT * FROM Labs WHERE id = @Id", new {Id = id});
+
+        return lab;
+    }
+
+    public bool ExistById(int id)
+    {
+        using var connection = new SqliteConnection(_databaseConfig.ConnectionString);
+        connection.Open();
+
+        var result = connection.ExecuteScalar<bool>("SELECT COUNT(id) FROM Labs WHERE id = @Id", new {Id = id});
 
         return result;
     }
+}
+

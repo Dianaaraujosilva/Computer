@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\IFSP\\Desktop\\SP304422X\\Computer\\LabManager.csproj": {}
+    "C:\\Users\\IFSP\\desktop\\SP304422X\\Computer\\LabManager.csproj": {}
   },
   "projects": {
-    "C:\\Users\\IFSP\\Desktop\\SP304422X\\Computer\\LabManager.csproj": {
+    "C:\\Users\\IFSP\\desktop\\SP304422X\\Computer\\LabManager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\IFSP\\Desktop\\SP304422X\\Computer\\LabManager.csproj",
+        "projectUniqueName": "C:\\Users\\IFSP\\desktop\\SP304422X\\Computer\\LabManager.csproj",
         "projectName": "LabManager",
-        "projectPath": "C:\\Users\\IFSP\\Desktop\\SP304422X\\Computer\\LabManager.csproj",
+        "projectPath": "C:\\Users\\IFSP\\desktop\\SP304422X\\Computer\\LabManager.csproj",
         "packagesPath": "C:\\Users\\IFSP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\IFSP\\Desktop\\SP304422X\\Computer\\obj\\",
+        "outputPath": "C:\\Users\\IFSP\\desktop\\SP304422X\\Computer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -43,6 +43,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.123, )"
+            },
             "Microsoft.data.Sqlite": {
               "target": "Package",
               "version": "[6.0.5, )"
